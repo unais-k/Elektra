@@ -161,12 +161,16 @@
                     });
                 } else {
                     if (result.data.status == true) {
-                        await Swal.fire({
+                        // await Swal.fire({
+                        //     icon: "success",
+                        //     title: "done",
+                        //     text: "New product added",
+                        //     showConfirmButton: false,
+                        //     timer: 1000,
+                        // });
+                        await Toast.fire({
                             icon: "success",
-                            title: "done",
-                            text: "New product added",
-                            showConfirmButton: false,
-                            timer: 1000,
+                            title: "New product added successfully",
                         });
                     } else {
                         await Swal.fire({
