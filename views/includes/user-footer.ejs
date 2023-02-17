@@ -147,7 +147,7 @@
 
             if (result.data.response == "productExist") {
                 await Toast.fire({
-                    icon: "oops",
+                    icon: "error",
                     title: "Product already exist",
                 });
             } else if (result.data.response == "outofstock") {
