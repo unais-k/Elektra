@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Mirrored from smartshop.websitelayout.net/login-register by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:00:34 GMT -->
+    <head>
+        <!-- metas -->
+        <meta charset="utf-8" />
+        <meta name="author" content="Chitrakoot Web" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="keywords" content="Multipurpose eCommerce Template + Admin" />
+        <meta name="description" content="Smartshop - Multipurpose eCommerce Template + Admin" />
+
+        <!-- title  -->
+        <title>Smartshop - Multipurpose eCommerce Template + Admin</title>
+
+        <!-- google icons -->
+        <script src="https://kit.fontawesome.com/624938e563.js" crossorigin="anonymous"></script>
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+            integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+            crossorigin="anonymous"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+            integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <script src="https://unpkg.com/themify@1.0.0/_themify.scss"></script>
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="/images/user/logos/favicon-32x32.png" />
+        <link rel="apple-touch-icon" href="/images/user/logos/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/user/logos/android-chrome-192x192.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/user/logos/android-chrome-512x512.png" />
+
+        <!-- plugins -->
+        <link rel="stylesheet" href="/stylesheet/user/plugins.css" />
+
+        <!-- theme core css -->
+        <link href="/stylesheet/user/styles.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <!-- PAGE LOADING
+    ================================== -->
+        <div id="preloader"></div>
+
+        <!-- MAIN WRAPPER
+    ================================== -->
+        <div class="main-wrapper mp-pusher" id="mp-pusher">
+            <!-- HEADER
+        ================================== -->
+            <%- include("../includes/userHeader.ejs") %>
+
+            <!-- PAGE TITLE
+        ================================== -->
+            <section class="page-title-section bg-img cover-background" data-background="/images/user/bg/page-title.jpg">
+                <div class="container">
+                    <div class="title-info">
+                        <h1>Register</h1>
+                    </div>
+                    <div class="breadcrumbs-info">
+                        <ul class="ps-0">
+                            <li>
+                                <a href="home-shop-1">Home</a><i class="fa-sharp fa-solid fa-angle-right ps-2 pe-1"></i>
+                            </li>
+                            <li><a href="#">Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LOGIN REGISTER
+        ================================== -->
+            <section class="md">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8 col-md-12">
+                            <div class="common-block">
+                                <div class="inner-title">
+                                    <h4 class="mb-0">Register</h4>
+                                    <p class="mb-0">There's lots of fun in Register.</p>
+                                </div>
+
+                                <form action="/otp_verify" method="post">
+                                    <div class="row">
+                                        <div
+                                            class="alert alert-danger mt-0 mb-2"
+                                            style="display: none"
+                                            id="errmsg"
+                                            role="alert"
+                                        ></div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Full Name</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="fullname"
+                                                    id="name"
+                                                    autocomplete="off"
+                                                    placeholder="Your fullname "
+                                                    onkeyup="onkey()"
+                                                    onkeydown="return /[a-z]/i.test(event.key)"
+                                                    required
+                                                />
+                                                <p class="text-danger fw-light opacity-75" id="nameidwarning"></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>User Name</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="username"
+                                                    id="username"
+                                                    autocomplete="off"
+                                                    placeholder="Your username "
+                                                    required
+                                                    onkeyup="usernameKey()"
+                                                />
+                                                <p class="text-danger fw-light opacity-75" id="usernameidwarning"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Email Address</label>
+                                                <input
+                                                    type="email"
+                                                    class="form-control"
+                                                    name="email"
+                                                    id="email"
+                                                    autocomplete="off"
+                                                    placeholder="Your email address"
+                                                    required
+                                                    onkeyup="emailkey()"
+                                                />
+                                                <p class="text-danger fw-light opacity-75" id="emailidwarning"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Phone</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="phone"
+                                                    id="phone"
+                                                    placeholder="Your Phone "
+                                                    required
+                                                    onkeypress="return isNumberKey(event)"
+                                                    onkeyup="mobilekey()"
+                                                />
+                                                <p class="text-danger fw-light opacity-75" id="mobileidwarning"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input
+                                                    type="password"
+                                                    class="form-control"
+                                                    name="password"
+                                                    id="password"
+                                                    onkeyup="passwordkey()"
+                                                    placeholder="Your password "
+                                                    required
+                                                />
+                                                <p class="text-danger fw-light opacity-75" id="passwordidwarning"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Confirm Password</label>
+                                                <input
+                                                    type="password"
+                                                    class="form-control"
+                                                    name="confirmpassword"
+                                                    id="confirmpassword"
+                                                    onkeyup="confirmkey()"
+                                                    placeholder=" confirm password "
+                                                    required
+                                                />
+                                                <p class="text-danger fw-light opacity-75" id="password2idwarning"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12 mb-2"></div>
+                                    </div>
+
+                                    <button type="submit" onclick="validatesignup()" class="butn-style2 mt-4">
+                                        Register
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER
+        ================================== -->
+            <%- include("../includes/user-footer.ejs") %>
+        </div>
+
+        <!-- SCROLL TO TOP
+    ================================== -->
+        <a href="#" class="scroll-to-top"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+
+        <!-- all js include start -->
+
+        <!-- axios cdn -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.3/axios.min.js"></script>
+
+        <!-- sweet alert cdn -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            let name = document.getElementById("name"),
+                username = document.getElementById("username"),
+                email = document.getElementById("email"),
+                mobile = document.getElementById("phone");
+            let password = document.getElementById("password"),
+                password2 = document.getElementById("confirmpassword"),
+                namewarning = document.getElementById("nameidwarning"),
+                usernamewarning = document.getElementById("usernameidwarning");
+            let emailwarning = document.getElementById("emailidwarning"),
+                mobilewarning = document.getElementById("mobileidwarning");
+            let passwordwarning = document.getElementById("passwordidwarning"),
+                password2warning = document.getElementById("password2idwarning");
+
+            function validatesignup() {
+                namewarning.innerHTML = "";
+                usernamewarning.innerHTML = "";
+                emailwarning.innerHTML = "";
+                mobilewarning.innerHTML = "";
+                passwordwarning.innerHTML = "";
+                password2warning.innerHTML = "";
+                event.preventDefault();
+                let form = event.target.form;
+                let validation = true;
+
+                if (name.value == "") {
+                    namewarning.innerHTML = "Please enter your name";
+                    validation = false;
+                } else if (name.value.length < 4 || name.value.length > 20) {
+                    namewarning.innerHTML = "Please enter your full name";
+                    validation = false;
+                }
+                if (email.value == "") {
+                    emailwarning.innerHTML = "Please enter your email id";
+                    validation = false;
+                } else {
+                    var validRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                    if (!email.value.match(validRegex) || email.value.length > 20) {
+                        emailwarning.innerHTML = "email id is not in valid format";
+                        validation = false;
+                    } else {
+                        let check = email.value.split("");
+                        if (!isNaN(check[0])) {
+                            emailwarning.innerHTML = "email id is not in valid format";
+                            validation = false;
+                        }
+                    }
+                }
+                let userRegex = /^[a-z0-9._\-]+$/;
+                if (username.value == "") {
+                    usernamewarning.innerHTML = "Please enter your username";
+                    validation = false;
+                } else if (username.value.length < 4 || username.value.length > 15 || !username.value.match(userRegex)) {
+                    usernamewarning.innerHTML = "username is not in valid format";
+                    validation = false;
+                }
+
+                if (mobile.value == "") {
+                    mobilewarning.innerHTML = "Please enter your mobile number";
+                    validation = false;
+                } else if (mobile.value.length != 10) {
+                    mobilewarning.innerHTML = "Mobile number is not in valid format";
+                    validation = false;
+                }
+                if (password.value == "") {
+                    passwordwarning.innerHTML = "Please enter a password";
+                    validation = false;
+                } else if (password.value.length < 6 || password.value.length > 12) {
+                    passwordwarning.innerHTML = "Password should be between 6 to 12 letters";
+                    validation = false;
+                } else if (password2.value == "") {
+                    password2warning.innerHTML = "Please confirm your password";
+                    validation = false;
+                } else if (password.value != password2.value) {
+                    password2warning.innerHTML = "Password confirmation is failed";
+                    validation = false;
+                }
+                if (validation) {
+                    try {
+                        axios
+                            .post("/otp_verify", {
+                                fullname: name.value,
+                                email: email.value,
+                                username: username.value,
+                                phone: phone.value,
+                                password: password.value,
+                                confirmpassword: password2.value,
+                            })
+                            .then((e) => {
+                                if (e.data.error) {
+                                    document.getElementById("errmsg").innerHTML = error;
+                                }
+                                if (!e.data.response) {
+                                    form.submit();
+                                    location.href = "/otp";
+                                    // location.href = "/";
+                                } else {
+                                    errmsg.style.display = "block";
+                                    document.getElementById("errmsg").innerHTML = e.data.response;
+                                }
+                            });
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }
+            }
+            function emailkey() {
+                emailwarning.innerHTML = "";
+            }
+            function usernameKey() {
+                usernamewarning.innerHTML = "";
+            }
+
+            function passwordkey() {
+                passwordwarning.innerHTML = "";
+            }
+
+            function confirmkey() {
+                password2warning.innerHTML = "";
+            }
+
+            function mobilekey() {
+                mobilewarning.innerHTML = "";
+            }
+
+            function onkey() {
+                namewarning.innerHTML = "";
+            }
+
+            function isNumberKey(evt) {
+                var charCode = evt.which ? evt.which : evt.keyCode;
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+                return true;
+            }
+        </script>
+
+        <!-- jQuery -->
+        <script src="/js/user/jquery.min.js"></script>
+
+        <!-- popper js -->
+        <script src="/js/user/popper.min.js"></script>
+
+        <!-- bootstrap -->
+        <script src="/js/user/bootstrap.min.js"></script>
+
+        <!-- core.min.js -->
+        <script src="/js/user/core.min.js"></script>
+
+        <!-- custom scripts -->
+        <script src="/js/user/main.js"></script>
+
+        <!-- all js include end -->
+    </body>
+
+    <!-- Mirrored from smartshop.websitelayout.net/login-register by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:00:34 GMT -->
+</html>

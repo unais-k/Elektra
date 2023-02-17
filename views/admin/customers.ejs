@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Mirrored from smartshop.websitelayout.net/admin/customers.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:01:00 GMT -->
+    <head>
+        <!-- metas -->
+        <meta charset="utf-8" />
+        <meta name="author" content="Chitrakoot Web" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="description" content="Smartshop - Responsive eCommerce Admin Dashboard" />
+
+        <!-- title  -->
+        <title>Smartshop - Responsive eCommerce Admin Dashboard</title>
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="/images/admin/logos/favicon.png" />
+        <link rel="apple-touch-icon" href="/images/admin/logos/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/admin/logos/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/admin/logos/apple-touch-icon-114x114.png" />
+        <script src="https://kit.fontawesome.com/624938e563.js" crossorigin="anonymous"></script>
+        <!-- common plugins -->
+        <link rel="stylesheet" href="/plugins/admin/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/plugins/admin/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/plugins/admin/icomoon/style.css" />
+        <link rel="stylesheet" href="/plugins/admin/uniform/css/default.css" />
+        <link rel="stylesheet" href="/plugins/admin/switchery/switchery.min.css" />
+
+        <!-- theme core css -->
+        <link rel="stylesheet" href="/stylesheet/admin/style.css" />
+    </head>
+
+    <body>
+        <!-- PAGE LOADING
+    ================================================== -->
+        <div id="preloader"></div>
+
+        <!-- PAGE CONTAINER
+    ================================================== -->
+        <div class="page-container">
+            <!-- PAGE SIDEBAR
+        ================================================== -->
+            <%- include("../includes/admin-sidebar.ejs") %>
+
+            <!-- PAGE CONTENT
+        ================================================== -->
+            <div class="page-content">
+                <!-- PAGE HEADER
+            ================================================== -->
+                <%- include("../includes/admin_header.ejs") %>
+
+                <!-- PAGE INNER
+            ================================================== -->
+                <div class="page-inner">
+                    <!-- PAGE MAIN WRAPPER
+                ================================================== -->
+                    <div id="main-wrapper">
+                        <!-- row -->
+                        <div class="row align-items-center grid-margin">
+                            <div class="col-12">
+                                <div class="card card-white">
+                                    <div class="card-body row align-items-center">
+                                        <div class="col-12 col-md-5 mb-4 mb-md-0">
+                                            <h4 class="mb-0">Customers</h4>
+                                        </div>
+
+                                        <div class="col-12 col-md-7">
+                                            <div class="row">
+                                                <div class="col-md-8 mb-3 mb-md-0">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="exampleInputEmail1"
+                                                        aria-describedby="exampleInputEmail1"
+                                                        placeholder="search by name"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-12 grid-margin">
+                                <div class="card card-white">
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <thead class="bg-light">
+                                                <tr>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Customer</th>
+                                                    <th scope="col">Contacts</th>
+                                                    <th scope="col">Total Orders</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Total Amount</th>
+                                                    <th scope="col">Joining Date</th>
+                                                    <!-- <th scope="col">Action</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <%if(userList.length>0){ %> <% userList.forEach( (userList,index)=>{ %>
+                                                <tr>
+                                                    <th scope="row"><%=index+1%></th>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div>
+                                                                <h6><%= userList.userName %></h6>
+                                                                <!-- <span>ID : #SK2540</span> -->
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><%= userList.phone %></td>
+                                                    <td>12</td>
+                                                    <td>
+                                                        <%if(userList.block) { %>
+                                                        <span class="badge rounded-pill bg-soft-pink"
+                                                            ><a href="/admin/actionFalse/<%=userList._id%>"
+                                                                >Blocked</a
+                                                            ></span
+                                                        >
+                                                        <%} else {%>
+                                                        <span class="badge rounded-pill bg-soft-green"
+                                                            ><a href="/admin/actionTrue/<%=userList._id%>">Active</a></span
+                                                        >
+                                                        <% } %>
+                                                    </td>
+                                                    <td>$2563</td>
+                                                    <td><%= userList.createdAt.toLocaleDateString() %></td>
+                                                    <!-- <td>
+                                                        <a
+                                                            href="#"
+                                                            class="me-3"
+                                                            data-bs-toggle="tooltip"
+                                                            data-bs-placement="top"
+                                                            title="Edit"
+                                                        >
+                                                            <i class="far fa-edit text-primary"></i>
+                                                        </a>
+                                                        <a
+                                                            href="#"
+                                                            data-bs-toggle="tooltip"
+                                                            data-bs-placement="top"
+                                                            title="Delete"
+                                                        >
+                                                            <i class="far fa-trash-alt text-danger"></i>
+                                                        </a>
+                                                    </td> -->
+                                                </tr>
+
+                                                <%})%> <% } %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Row -->
+                    </div>
+                    <div class="page-footer">
+                        <p>Copyright &copy; <span class="current-year"></span> Gigant Elektra All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCROLL TO TOP
+    ================================================== -->
+        <a href="#" class="scroll-to-top"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+
+        <!-- ALL JS INCLUDE
+    ================================================== -->
+
+        <!-- jQuery -->
+        <script src="/plugins/admin/jquery/jquery.min.js"></script>
+
+        <!-- popper -->
+        <script src="/plugins/admin/popper/js/popper.min.js"></script>
+
+        <!-- bootstrap -->
+        <script src="/plugins/admin/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- slimscroll -->
+        <script src="/plugins/admin/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+        <!-- uniform -->
+        <script src="/plugins/admin/uniform/js/jquery.uniform.standalone.js"></script>
+
+        <!-- switchery -->
+        <script src="/plugins/admin/switchery/switchery.min.js"></script>
+
+        <!-- theme core scripts -->
+        <script src="/js/admin/main.js"></script>
+
+        <!-- all js include end -->
+    </body>
+
+    <!-- Mirrored from smartshop.websitelayout.net/admin/customers.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:01:00 GMT -->
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Mirrored from smartshop.websitelayout.net/admin/product-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:00:55 GMT -->
+    <head>
+        <!-- metas -->
+        <meta charset="utf-8" />
+        <meta name="author" content="Chitrakoot Web" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="description" content="Smartshop - Responsive eCommerce Admin Dashboard" />
+
+        <!-- title  -->
+        <title>Smartshop - Responsive eCommerce Admin Dashboard</title>
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="/images/admin/logos/favicon.png" />
+        <link rel="apple-touch-icon" href="/images/admin/logos/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/admin/logos/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/admin/logos/apple-touch-icon-114x114.png" />
+        <script src="https://kit.fontawesome.com/624938e563.js" crossorigin="anonymous"></script>
+        <!-- common plugins -->
+        <link rel="stylesheet" href="/plugins/admin/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/plugins/admin/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/plugins/admin/icomoon/style.css" />
+        <link rel="stylesheet" href="/plugins/admin/uniform/css/default.css" />
+        <link rel="stylesheet" href="/plugins/admin/switchery/switchery.min.css" />
+
+        <!-- quill editor plugin -->
+        <link rel="stylesheet" href="/plugins/admin/quill/quill.snow.css" />
+
+        <!-- quill editor plugin -->
+        <link rel="stylesheet" href="/plugins/admin/isotope/magnific-popup.css" />
+
+        <!-- tagsinput plugin -->
+        <link rel="stylesheet" href="/plugins/admin/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+
+        <!-- tagsinput plugin -->
+        <link rel="stylesheet" href="/plugins/admin/touchspin/jquery.bootstrap-touchspin.min.css" />
+
+        <!-- theme core css -->
+        <link rel="stylesheet" href="/stylesheet/admin/style.css" />
+    </head>
+
+    <body>
+        <!-- PAGE LOADING
+    ================================================== -->
+        <div id="preloader"></div>
+
+        <!-- PAGE CONTAINER
+    ================================================== -->
+        <div class="page-container">
+            <!-- PAGE SIDEBAR
+        ================================================== -->
+            <%- include("../includes/admin-sidebar.ejs") %>
+
+            <!-- PAGE CONTENT
+        ================================================== -->
+            <div class="page-content">
+                <!-- PAGE HEADER
+            ================================================== -->
+                <%- include("../includes/admin_header.ejs") %>
+
+                <!-- PAGE INNER
+            ================================================== -->
+                <div class="page-inner">
+                    <!-- PAGE MAIN WRAPPER
+                ================================================== -->
+                    <div id="main-wrapper">
+                        <!-- row -->
+                        <div class="row g-3">
+                            <div class="col-sm-2"></div>
+                            <div class="col-xxl-12 grid-margin">
+                                <div class="card card-white mb-3">
+                                    <div class="card-heading clearfix">
+                                        <h4 class="card-title">Product information</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom01">Product Id</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="validationCustom01"
+                                                    style="background-color: #fff"
+                                                    readonly
+                                                    placeholder="First name"
+                                                    value="<%=editProduct._id%>"
+                                                />
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom01">Name</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="validationCustom01"
+                                                    style="background-color: #fff"
+                                                    readonly
+                                                    placeholder="First name"
+                                                    value="<%=editProduct.productName%>"
+                                                />
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom02">Price</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="price"
+                                                    style="background-color: #fff"
+                                                    readonly
+                                                    id="validationCustom02"
+                                                    value="$<%=editProduct.price%>.00"
+                                                />
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom03">Details</label>
+                                                <input
+                                                    type="text"
+                                                    name="details"
+                                                    class="form-control"
+                                                    style="background-color: #fff"
+                                                    readonly
+                                                    id="validationCustom03"
+                                                    value="<%=editProduct.details%>"
+                                                />
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom01">Brand</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="vendor"
+                                                    style="background-color: #fff"
+                                                    readonly
+                                                    id="validationCustom01"
+                                                    value="<%=editProduct.brand%>"
+                                                />
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom05">Quantity</label>
+                                                <input
+                                                    type="text"
+                                                    name="quantity"
+                                                    class="form-control"
+                                                    style="background-color: #fff"
+                                                    readonly
+                                                    id="validationCustom05"
+                                                    value="<%=editProduct.quantity%>"
+                                                />
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom01">Colour</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="vendor"
+                                                    style="background-color: #fff"
+                                                    readonly
+                                                    id="validationCustom01"
+                                                    value="<%=editProduct.color%>"
+                                                />
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom01">Category</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    style="background-color: #fff"
+                                                    readonly
+                                                    name="vendor"
+                                                    id="validationCustom01"
+                                                    value="<%=editProduct.category%>"
+                                                />
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-heading clearfix">
+                                            <h4 class="card-title">Media</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row grid-margin gallery">
+                                                <div class="col-sm-2"></div>
+                                                <%for(let i = 0; i < editProduct.productImages.length; i++) {%>
+                                                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+                                                    <div class="card">
+                                                        <img
+                                                            src="<%=editProduct.productImages[i]%>"
+                                                            class="card-img-top"
+                                                            alt="..."
+                                                        />
+
+                                                        <div class="card-body row text-center">
+                                                            <div class="col border-end">
+                                                                <a
+                                                                    href="<%=editProduct.productImages[i]%>"
+                                                                    class="popimg"
+                                                                    data-bs-toggle="tooltip"
+                                                                    data-bs-placement="top"
+                                                                    title="View"
+                                                                >
+                                                                    <i class="far fa-eye text-primary"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%}%>
+                                            </div>
+                                            <div class="row"></div>
+                                            <div class="col-md-12">
+                                                <div class="m-3">
+                                                    <a href="/admin/update_product/<%=editProduct._id%>"
+                                                        ><button class="btn btn-primary p-2">EDIT PRODUCT</button></a
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-footer">
+                        <p>Copyright &copy; <span class="current-year"></span> Gigant Elektra All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCROLL TO TOP
+    ================================================== -->
+        <a href="#" class="scroll-to-top"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+
+        <!-- ALL JS INCLUDE
+    ================================================== -->
+
+        <!-- jQuery -->
+        <script src="/plugins/admin/jquery/jquery.min.js"></script>
+
+        <!-- popper -->
+        <script src="/plugins/admin/popper/js/popper.min.js"></script>
+
+        <!-- bootstrap -->
+        <script src="/plugins/admin/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- slimscroll -->
+        <script src="/plugins/admin/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+        <!-- uniform -->
+        <script src="/plugins/admin/uniform/js/jquery.uniform.standalone.js"></script>
+
+        <!-- switchery -->
+        <script src="/plugins/admin/switchery/switchery.min.js"></script>
+
+        <!-- isotope.pkgd.min js -->
+        <script src="/plugins/admin/isotope/jquery.stellar.min.js"></script>
+
+        <!-- jquery.magnific-popup js -->
+        <script src="/plugins/admin/isotope/jquery.magnific-popup.min.js"></script>
+
+        <!-- isotope.pkgd.min js -->
+        <script src="/plugins/admin/isotope/isotope.pkgd.min.js"></script>
+
+        <!-- switchery -->
+        <script src="/plugins/admin/quill/quill.js"></script>
+
+        <!-- tagsinput -->
+        <script src="/plugins/admin/touchspin/jquery.bootstrap-touchspin.min.js"></script>
+
+        <!-- tagsinput -->
+        <script src="/plugins/admin/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+
+        <!-- form elements -->
+        <script src="/js/admin/pages/form-elements.js"></script>
+
+        <!-- theme core scripts -->
+        <script src="/js/admin/main.js"></script>
+
+        <!-- all js include end -->
+    </body>
+
+    <!-- Mirrored from smartshop.websitelayout.net/admin/product-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:00:59 GMT -->
+</html>

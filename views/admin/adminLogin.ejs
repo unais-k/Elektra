@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Welcome Admin</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script src="https://kit.fontawesome.com/624938e563.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="/stylesheet/admin/stylelogin.css" />
+    </head>
+    <body class="img js-fullheight" style="background-image: url(/images/admin/bg.jpg)">
+        <section class="ftco-section" style="height: 100vh">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h4 class="heading-section">
+                            <h3><b>Work for a cause,</b></h3>
+                            <h5>not for applause</h5>
+                            <h3><b>Live life to express,</b></h3>
+                            <h5>not for impress</h5>
+                        </h4>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="login-wrap p-0">
+                            <form action="" method="post">
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <input
+                                        type="email"
+                                        id="loginemail"
+                                        name="email"
+                                        class="form-control"
+                                        autocomplete="off"
+                                        placeholder="Enter a valid email address"
+                                        required
+                                    />
+                                    <p class="text-danger mb-1 fw-light opacity-75" id="emailidwarning"></p>
+                                </div>
+
+                                <!-- Password input -->
+                                <div class="form-outline mb-3">
+                                    <input
+                                        type="password"
+                                        id="loginpassword"
+                                        name="password"
+                                        class="form-control"
+                                        autocomplete="off"
+                                        placeholder="Enter password"
+                                        required
+                                    />
+                                    <p class="text-danger mb-1 fw-light opacity-75" id="passwordidwarning"></p>
+                                </div>
+                                <div class="login_btn">
+                                    <button
+                                        onclick="validate()"
+                                        class="btn btn-primary"
+                                        type="submit"
+                                        value="submit"
+                                        style="padding-left: 2.5rem; padding-right: 2.5rem"
+                                    >
+                                        Login
+                                    </button>
+                                    <p class="text-danger" id="errmsg"></p>
+                                </div>
+                                <br />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- axios cdn -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.3/axios.min.js"></script>
+
+        <!-- sweet alert cdn -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            function validate() {
+                let email = document.getElementById("loginemail");
+                let password = document.getElementById("loginpassword");
+                let emailwarning = document.getElementById("emailidwarning");
+                let passwordwarning = document.getElementById("passwordidwarning");
+                document.getElementById("errmsg").innerHTML = "";
+                event.preventDefault();
+                let form = event.target.form;
+                let validation = true;
+                emailwarning.innerHTML = "";
+                passwordwarning.innerHTML = "";
+                if (email.value === "") {
+                    emailwarning.innerHTML = "Please enter your email id";
+                    validation = false;
+                }
+                if (password.value === "") {
+                    passwordwarning.innerHTML = "Please enter your password";
+                    validation = false;
+                }
+                if (validation) {
+                    email = email.value;
+                    password = password.value;
+                    try {
+                        axios
+                            .post("/admin/adminLogin", {
+                                email: email,
+                                password: password,
+                            })
+                            .then((e) => {
+                                if (!e.data.response) {
+                                    form.submit();
+                                    location.href = "/admin/adminHome";
+                                } else {
+                                    document.getElementById("errmsg").innerHTML = "Invalid credentials";
+                                }
+                            });
+                    } catch (error) {
+                        console.log(error);
+                    }
+                    return validation;
+                }
+            }
+        </script>
+
+        <script src="/js/admin/jquery.min.js"></script>
+        <script src="/js/admin/popper.js"></script>
+        <script src="/js/admin/bootstrap.min.js"></script>
+        <script src="/js/admin/main.js"></script>
+    </body>
+</html>

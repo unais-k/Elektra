@@ -1,0 +1,880 @@
+<ul class="navbar-nav mx-auto" id="nav" style="display: none">
+    <li>
+        <a href="#">Home</a>
+    </li>
+
+    <li>
+        <a href="#">Account</a>
+        <ul>
+            <li><a href="login-register.html">Login / Register</a></li>
+            <li><a href="account-password-recovery.html">Password Recovery</a></li>
+            <li><a href="account-orders.html">Orders List</a></li>
+            <li><a href="account-wishlist.html">Wishlist</a></li>
+            <li><a href="account-profile.html">Profile Page</a></li>
+            <li><a href="account-address.html">Contact / Shipping Address</a></li>
+            <li><a href="account-tickets.html">My Tickets</a></li>
+            <li><a href="account-single-ticket.html">Single Ticket</a></li>
+        </ul>
+    </li>
+    <!-- <img src="/images/uploads/<%=productList.productImages[0] %>" alt="..."> -->
+    <li>
+        <a href="#">Mega menu</a>
+        <ul>
+            <li><a href="login-register.html">Login / Register</a></li>
+            <li><a href="account-password-recovery.html">Password Recovery</a></li>
+            <li><a href="account-orders.html">Orders List</a></li>
+            <li><a href="account-wishlist.html">Wishlist</a></li>
+            <li><a href="account-profile.html">Profile Page</a></li>
+            <li><a href="account-address.html">Contact / Shipping Address</a></li>
+            <li><a href="account-tickets.html">My Tickets</a></li>
+            <li><a href="account-single-ticket.html">Single Ticket</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">Shop</a>
+        <ul>
+            <li><a href="shop-categories.html">Shop Categories</a></li>
+            <li><a href="shop-product-grid.html">Product Grid</a></li>
+            <li><a href="shop-product-list.html">Product List</a></li>
+            <li>
+                <a href="shop-product-full-three-coulmn.html">Product Three Coulmns</a>
+            </li>
+            <li>
+                <a href="shop-product-full-four-coulmn.html">Product Four Coulmns</a>
+            </li>
+            <li><a href="shop-product-detail.html">Product Detail</a></li>
+            <li><a href="shop-cart.html">Shop Cart</a></li>
+            <li>
+                <a href="shop-checkout-address.html">Shop Checkout</a>
+                <ul>
+                    <li><a href="shop-checkout-address.html">Address</a></li>
+                    <li><a href="shop-checkout-shipping.html">Shipping</a></li>
+                    <li><a href="shop-checkout-payment.html">Payment</a></li>
+                    <li><a href="shop-checkout-review.html">Review</a></li>
+                    <li><a href="checkout-complete.html">Complete</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<div class="buttons-set">
+    <!-- Button trigger modal -->
+    <button type="button" class="butn-style2 wide" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Click here to Update
+    </button>
+
+    <!-- Modal -->
+    <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Update Address</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/address_update/<%=contact._id%>" method="post">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Your name here" />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="address"
+                                        placeholder="Your address  here"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        name="email"
+                                        placeholder="Your email address here"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="phone"
+                                        placeholder="Your phone number here"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>State</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="state"
+                                        placeholder="Your state name here"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    <select name="country" class="form-control form-select">
+                                        <option value="" selected="selected">Select a country</option>
+                                        <option value="INDIA">India</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>City / Town </label>
+                                    <input type="text" class="form-control" name="city" placeholder="Your city name here" />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Pin Code</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="pincode"
+                                        placeholder="Your pin code here"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="buttons-set">
+                            <a href="shop-checkout-shipping" class="butn-style2 wide"
+                                >Continue <i class="fas fa-arrow-right ms-1"></i
+                            ></a>
+                        </div> -->
+                        <div class="modal-footer">
+                            <button type="submit" class="butn-style2 wide" data-bs-dismiss="modal">Update</button>
+                            <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+                        </div>
+                    </form>
+                    <!-- modal forma end here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="shop-checkout-shipping" class="butn-style2 wide">Continue <i class="fas fa-arrow-right ms-1"></i></a>
+</div>
+
+\ //////////////////////////
+
+<!-- Button trigger modal -->
+<button type="button" class="butn-style2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add new Address</button>
+
+<!-- Modal -->
+<div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">New Address</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="formOk">
+                    <form id="postData" method="post">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Your name here" />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="lastname"
+                                        placeholder="Your last name here"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        name="email"
+                                        placeholder="Your email address here"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="phone"
+                                        placeholder="Your phone number here"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="address"
+                                        placeholder="Your address  here"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    <select name="country" class="form-control form-select">
+                                        <option value="" selected="selected">Select a country</option>
+                                        <option value="IN">India</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>City / Town </label>
+                                    <input type="text" class="form-control" name="city" placeholder="Your city name here" />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Pin Code</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="pincode"
+                                        placeholder="Your pin code here"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div>
+                         <button type="submit" class="butn-style2 mt-4">Submit</button>
+                     </div> -->
+                        <div class="modal-footer">
+                            <button type="submit" class="butn-style2 mt-4" data-bs-dismiss="modal">Submit</button>
+                            <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+//////////////////////////////////////
+
+<!-- Button trigger modal -->
+<button type="button" class="butn-style2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <i class="fa-solid fa-pen-to-square pe-2"></i>Edit
+</button>
+
+<!-- Modal -->
+<div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Address</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>
+
+//////////////////////////////////////////
+-------------------------------------------------------------------------------------------------- let x = your <% if
+(user_details) { %> <% if (cart) { %>
+<a href="/cart/<%=user_details._id%>">
+    <button class="butn-style2 me-3 mb-2 mb-md-0">
+        <span><i class="fas fa-shopping-cart me-1"></i> Go to Cart</span>
+    </button>
+</a>
+<!-- <% } else { %>
+    <button
+        id="addTo"
+        onclick="addtocartShop('<%=productList._id%>')"
+        class="butn-style2 me-3 mb-2 mb-md-0"
+    >
+        <span><i class="fas fa-shopping-cart me-1"></i> Add to Cart</span>
+    </button> -->
+<% } %> <% if (wishlist) { %>
+<a href="/wishlist">
+    <button class="butn-style2 dark">
+        <span><i class="fas fa-heart me-1"></i> Go to wishlist</span>
+    </button>
+</a>
+<!-- <% } else { %>
+    <button onclick="addtowishlist('<%=productList._id%>')" class="butn-style2 dark">
+        <span><i class="fas fa-heart me-1"></i> Add to wishlist</span>
+    </button> -->
+<% } %> <% } else { %>
+<button id="addTo" onclick="addtocartShop('<%=productList._id%>')" class="butn-style2 me-3 mb-2 mb-md-0">
+    <span><i class="fas fa-shopping-cart me-1"></i> Add to Cart</span>
+</button>
+<button onclick="addtowishlist('<%=productList._id%>')" class="butn-style2 dark">
+    <span><i class="fas fa-heart me-1"></i> Add to wishlist</span>
+</button>
+<% } %> ///////////////////////////////////////---------------------------------------
+<div class="card">
+    <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+            <button
+                class="btn btn-link collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+            >
+                Coupon Codes
+            </button>
+        </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
+        <div class="card-body">
+            <form action="#">
+                <div class="row">
+                    <div class="col-sm-12 mb-2">
+                        <div class="form-group">
+                            <label>Country</label>
+                            <select class="form-control form-select">
+                                <option value="" selected="selected">Select a country</option>
+                                <option value="IN">India</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="butn-style2 small">Update Totals</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+//////////////////order page
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order</th>
+                <th>Date</th>
+                <th>Payment Status</th>
+                <th>Total</th>
+                <th>Actions</th>
+                <th>Details</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for( let i = 0; i < order.length; i++ ) { %> <% if (order[i].order_status == "pending") { %>
+
+            <tr>
+                <th><%=i+1%></th>
+                <td><%=order[i].updatedAt.toLocaleDateString()%></td>
+                <td><span class="fas fa-circle text-primary small mr-1 pe-2"></span><%=order[i].order_status%></td>
+                <td><span>$ </span><%=order[i].total%>.00</td>
+                <td>
+                    <a href="#" class="text-primary"><%=order[i].payment_method%></a>
+                </td>
+                <td>
+                    <a href="/order_details/<%=order[i]._id%>"><i class="fa-solid fa-eye pe-2"></i>View</a>
+                </td>
+                <td>
+                    <button onclick="cancelOrder('<%=order[i]._id%>')" class="btn btn-dark">Cancel</button>
+                </td>
+            </tr>
+            <% } else {%>
+            <tr>
+                <th><%=i+1%></th>
+                <td><%=order[i].updatedAt.toLocaleDateString()%></td>
+                <%if(order[i].order_status=="Completed"){%>
+                <td><span class="fas fa-circle text-success small mr-1 pe-2"></span><%=order[i].order_status%></td>
+                <%}else if(order[i].order_status=="Cancelled"){%>
+                <td><span class="fas fa-circle text-danger small mr-1 pe-2"></span><%=order[i].order_status%></td>
+                <%}else{%>
+                <td><span class="fas fa-circle text-primary small mr-1 pe-2"></span><%=order[i].order_status%></td>
+                <%}%>
+                <td><span>$ </span><%=order[i].total%>.00</td>
+                <td>
+                    <a href="#" class="text-primary"><%=order[i].payment_method%></a>
+                </td>
+                <td>
+                    <a href="/order_details/<%=order[i]._id%>"><i class="fa-solid fa-eye pe-2"></i>View</a>
+                </td>
+            </tr>
+            <% } %> <% } %>
+        </tbody>
+    </table>
+</div>
+
+////////
+<!-- slide 2 -->
+<li
+    data-fstransition="fade"
+    data-transition="scaledownfrombottom"
+    data-easein="default"
+    data-easeout="default"
+    data-slotamount="1"
+    data-masterspeed="1200"
+    data-delay="8000"
+    data-title="Interior Design"
+>
+    <!-- MAIN IMAGE -->
+    <img
+        src="/images/user/slider/slide-14.jpg"
+        alt="slide2"
+        data-bgrepeat="no-repeat"
+        data-bgfit="cover"
+        class="rev-slidebg"
+    />
+
+    <!-- HERO SUBTITLE -->
+    <div
+        class="tp-caption"
+        data-x="30"
+        data-y="center"
+        data-voffset="[-100,-75,-75,-150]"
+        data-fontsize="[32,30,28,30]"
+        data-lineheight="34"
+        data-width="[600, 500, 400, 300]"
+        data-whitespace="[nowrap, nowrap, nowrap, normal]"
+        data-frames='[{
+                                    "delay":1000,
+                                    "speed":900,
+                                    "frame":"0",
+                                    "from":"y:150px;opacity:0;",
+                                    "ease":"Power3.easeOut",
+                                    "to":"o:1;"
+                                    },{
+                                    "delay":"wait",
+                                    "speed":1000,
+                                    "frame":"999",
+                                    "to":"opacity:0;","ease":"Power3.easeOut"
+                                }]'
+    >
+        <p class="white-space">Amazon</p>
+    </div>
+
+    <!-- HERO TITLE -->
+    <div
+        class="tp-caption hero-text alt-font text-primary font-weight-600"
+        data-x="30"
+        data-y="center"
+        data-voffset="[-30,-10,-10,-50]"
+        data-fontsize="[52,48,46,46]"
+        data-lineheight="[76,72,64,58]"
+        data-width="[none, none, none, 300]"
+        data-whitespace="[nowrap, nowrap, nowrap, normal]"
+        data-frames='[{
+                                    "delay":1100,
+                                    "speed":900,
+                                    "frame":"0",
+                                    "from":"y:150px;opacity:0;",
+                                    "ease":"Power3.easeOut",
+                                    "to":"o:1;"
+                                    },{
+                                    "delay":"wait",
+                                    "speed":1000,
+                                    "frame":"999",
+                                    "to":"opacity:0;","ease":"Power3.easeOut"
+                                }]'
+        data-splitout="none"
+    >
+        Echo Spot New
+    </div>
+
+    <!-- HERO SUBTITLE -->
+    <div
+        class="tp-caption"
+        data-x="30"
+        data-y="center"
+        data-voffset="[30,40,50,45]"
+        data-fontsize="[26,24,22,22]"
+        data-lineheight="[26,72,64,58]"
+        data-width="[600, 500, 500, 300]"
+        data-whitespace="[nowrap, nowrap, nowrap, normal]"
+        data-frames='[{
+                                    "delay":1200,
+                                    "speed":900,
+                                    "frame":"0",
+                                    "from":"y:150px;opacity:0;",
+                                    "ease":"Power3.easeOut",
+                                    "to":"o:1;"
+                                    },{
+                                    "delay":"wait",
+                                    "speed":1000,
+                                    "frame":"999",
+                                    "to":"opacity:0;","ease":"Power3.easeOut"
+                                }]'
+    >
+        <p class="white-space">Starting at <span class="text-extra-dark-gray font-weight-700">$199.99</span></p>
+    </div>
+
+    <!-- BUTTON -->
+    <div
+        class="tp-caption"
+        data-x="35"
+        data-y="center"
+        data-voffset="[95,110,115,120]"
+        data-lineheight="55"
+        data-hoffset="0"
+        data-frames='[{
+                                        "delay":1300,
+                                        "speed":900,
+                                        "frame":"0",
+                                        "from":"y:150px;opacity:0;",
+                                        "ease":"Power3.easeOut",
+                                        "to":"o:1;"
+                                        },{
+                                        "delay":"wait",
+                                        "speed":1000,
+                                        "frame":"999",
+                                        "to":"opacity:0;","ease":"Power3.easeOut"
+                                    }]'
+    >
+        <a href="#" class="butn-style2 dark medium">Shop Now</a>
+    </div>
+</li>
+<!-- end slide 2 -->
+
+<!-- slide 5 -->
+<li
+    data-fstransition="fade"
+    data-transition="scaledownfrombottom"
+    data-easein="default"
+    data-easeout="default"
+    data-slotamount="1"
+    data-masterspeed="1200"
+    data-delay="8000"
+    data-title="Interior Design"
+>
+    <!-- MAIN IMAGE -->
+    <img
+        src="/images/user/slider/slide-15.jpg"
+        alt="slide3"
+        data-bgrepeat="no-repeat"
+        data-bgfit="cover"
+        class="rev-slidebg"
+    />
+
+    <!-- HERO SUBTITLE -->
+    <div
+        class="tp-caption"
+        data-x="30"
+        data-y="center"
+        data-voffset="[-100,-75,-75,-150]"
+        data-fontsize="[32,30,28,30]"
+        data-lineheight="34"
+        data-width="[600, 500, 400, 300]"
+        data-whitespace="[nowrap, nowrap, nowrap, normal]"
+        data-frames='[{
+                                    "delay":1000,
+                                    "speed":900,
+                                    "frame":"0",
+                                    "from":"y:150px;opacity:0;",
+                                    "ease":"Power3.easeOut",
+                                    "to":"o:1;"
+                                    },{
+                                    "delay":"wait",
+                                    "speed":1000,
+                                    "frame":"999",
+                                    "to":"opacity:0;","ease":"Power3.easeOut"
+                                }]'
+    >
+        <p class="white-space">Smartphone</p>
+    </div>
+
+    <!-- HERO TITLE -->
+    <div
+        class="tp-caption hero-text alt-font text-primary font-weight-600"
+        data-x="30"
+        data-y="center"
+        data-voffset="[-30,-10,-10,-50]"
+        data-fontsize="[52,48,46,46]"
+        data-lineheight="[76,72,64,58]"
+        data-width="[none, none, none, 300]"
+        data-whitespace="[nowrap, nowrap, nowrap, normal]"
+        data-frames='[{
+                                    "delay":1100,
+                                    "speed":900,
+                                    "frame":"0",
+                                    "from":"y:150px;opacity:0;",
+                                    "ease":"Power3.easeOut",
+                                    "to":"o:1;"
+                                    },{
+                                    "delay":"wait",
+                                    "speed":1000,
+                                    "frame":"999",
+                                    "to":"opacity:0;","ease":"Power3.easeOut"
+                                }]'
+        data-splitout="none"
+    >
+        Mobile Series
+    </div>
+
+    <!-- HERO SUBTITLE -->
+    <div
+        class="tp-caption"
+        data-x="30"
+        data-y="center"
+        data-voffset="[30,40,50,45]"
+        data-fontsize="[26,24,22,22]"
+        data-lineheight="[26,72,64,58]"
+        data-width="[600, 500, 500, 300]"
+        data-whitespace="[nowrap, nowrap, nowrap, normal]"
+        data-frames='[{
+                                    "delay":1200,
+                                    "speed":900,
+                                    "frame":"0",
+                                    "from":"y:150px;opacity:0;",
+                                    "ease":"Power3.easeOut",
+                                    "to":"o:1;"
+                                    },{
+                                    "delay":"wait",
+                                    "speed":1000,
+                                    "frame":"999",
+                                    "to":"opacity:0;","ease":"Power3.easeOut"
+                                }]'
+    >
+        <p class="white-space">Starting at <span class="text-extra-dark-gray font-weight-700">$599.99</span></p>
+    </div>
+
+    <!-- BUTTON -->
+    <div
+        class="tp-caption"
+        data-x="35"
+        data-y="center"
+        data-voffset="[95,110,115,120]"
+        data-lineheight="55"
+        data-hoffset="0"
+        data-frames='[{
+                                        "delay":1300,
+                                        "speed":900,
+                                        "frame":"0",
+                                        "from":"y:150px;opacity:0;",
+                                        "ease":"Power3.easeOut",
+                                        "to":"o:1;"
+                                        },{
+                                        "delay":"wait",
+                                        "speed":1000,
+                                        "frame":"999",
+                                        "to":"opacity:0;","ease":"Power3.easeOut"
+                                    }]'
+    >
+        <a href="#" class="butn-style2 dark medium">Shop Now</a>
+    </div>
+</li>
+<!-- slide 5 end -->
+
+<!-- slide 3 -->
+<li
+    data-fstransition="fade"
+    data-transition="scaledownfrombottom"
+    data-easein="default"
+    data-easeout="default"
+    data-slotamount="1"
+    data-masterspeed="1200"
+    data-delay="8000"
+    data-title="Interior Design"
+>
+    <!-- MAIN IMAGE -->
+    <img
+        src="/images/user/slider/slide-20.jpg"
+        alt="slide3"
+        data-bgrepeat="no-repeat"
+        data-bgfit="cover"
+        class="rev-slidebg"
+    />
+
+    <!-- HERO SUBTITLE -->
+    <div
+        class="tp-caption"
+        data-x="30"
+        data-y="center"
+        data-voffset="[-100,-75,-75,-150]"
+        data-fontsize="[32,30,28,30]"
+        data-lineheight="34"
+        data-width="[600, 500, 400, 300]"
+        data-whitespace="[nowrap, nowrap, nowrap, normal]"
+        data-frames='[{
+                                    "delay":1000,
+                                    "speed":900,
+                                    "frame":"0",
+                                    "from":"y:150px;opacity:0;",
+                                    "ease":"Power3.easeOut",
+                                    "to":"o:1;"
+                                    },{
+                                    "delay":"wait",
+                                    "speed":1000,
+                                    "frame":"999",
+                                    "to":"opacity:0;","ease":"Power3.easeOut"
+                                }]'
+    >
+        <p class="white-space">Smartphone</p>
+    </div>
+
+    <!-- HERO TITLE -->
+    <div
+        class="tp-caption hero-text alt-font text-primary font-weight-600"
+        data-x="30"
+        data-y="center"
+        data-voffset="[-30,-10,-10,-50]"
+        data-fontsize="[52,48,46,46]"
+        data-lineheight="[76,72,64,58]"
+        data-width="[none, none, none, 300]"
+        data-whitespace="[nowrap, nowrap, nowrap, normal]"
+        data-frames='[{
+                                    "delay":1100,
+                                    "speed":900,
+                                    "frame":"0",
+                                    "from":"y:150px;opacity:0;",
+                                    "ease":"Power3.easeOut",
+                                    "to":"o:1;"
+                                    },{
+                                    "delay":"wait",
+                                    "speed":1000,
+                                    "frame":"999",
+                                    "to":"opacity:0;","ease":"Power3.easeOut"
+                                }]'
+        data-splitout="none"
+    >
+        Mobile Series
+    </div>
+
+    <!-- HERO SUBTITLE -->
+    <div
+        class="tp-caption"
+        data-x="30"
+        data-y="center"
+        data-voffset="[30,40,50,45]"
+        data-fontsize="[26,24,22,22]"
+        data-lineheight="[26,72,64,58]"
+        data-width="[600, 500, 500, 300]"
+        data-whitespace="[nowrap, nowrap, nowrap, normal]"
+        data-frames='[{
+                                    "delay":1200,
+                                    "speed":900,
+                                    "frame":"0",
+                                    "from":"y:150px;opacity:0;",
+                                    "ease":"Power3.easeOut",
+                                    "to":"o:1;"
+                                    },{
+                                    "delay":"wait",
+                                    "speed":1000,
+                                    "frame":"999",
+                                    "to":"opacity:0;","ease":"Power3.easeOut"
+                                }]'
+    >
+        <p class="white-space">Starting at <span class="text-extra-dark-gray font-weight-700">$599.99</span></p>
+    </div>
+
+    <!-- BUTTON -->
+    <div
+        class="tp-caption"
+        data-x="35"
+        data-y="center"
+        data-voffset="[95,110,115,120]"
+        data-lineheight="55"
+        data-hoffset="0"
+        data-frames='[{
+                                        "delay":1300,
+                                        "speed":900,
+                                        "frame":"0",
+                                        "from":"y:150px;opacity:0;",
+                                        "ease":"Power3.easeOut",
+                                        "to":"o:1;"
+                                        },{
+                                        "delay":"wait",
+                                        "speed":1000,
+                                        "frame":"999",
+                                        "to":"opacity:0;","ease":"Power3.easeOut"
+                                    }]'
+    >
+        <a href="#" class="butn-style2 dark medium">Shop Now</a>
+    </div>
+</li>
+<!-- end slide 3 -->
+------------------------ exports.sessionCheckAxios = async (req, res, next) => { if (req.session.user_login) { if (await
+userId.findOne({ _id: req.session.user_login._id, block: false })) { console.log("Axios session is ready"); next(); } else {
+req.session.user_login = false; res.json = { response: "login" }; } } else { req.session.user_login = false; res.json = {
+response: "login" }; } }; --------------------------------------------------<% if (cartItems.items[i].quantity > 1) { %>
+style="visibility: visible" <% } else { %> style="visibility: hidden" <% } %> ------------------------------------ const
+userRegisterPost = async (req, res, next) => { const userDetails = { userName: req.body.fullname, userId: req.body.username,
+phone: req.body.phone, userEmail: req.body.email, password: req.body.password, }; try { if (req.session.user_login)
+res.redirect("/userLogin"); else { if (await userModel.findOne({ userEmail: userDetails.userEmail })) {
+res.render("user/userRegister", { message: "Email id already exists" }); } else { if (await userModel.findOne({ phone:
+userDetails.phone })) { res.render("user/userRegister", { message: "Phone number already exists" }); } else { if
+(req.body.password == req.body.confirmpassword) { userDetails.password = await bcrypt.hash(userDetails.password, 10);
+console.log("password hashing"); console.log(userDetails.password); await userModel.create({ userName: req.body.fullname,
+userId: req.body.username, userEmail: req.body.email, phone: req.body.phone, password: userDetails.password, userImage:
+req.file.filename, }); // req.session.user = true; req.session.user_login = user; res.redirect("/"); } else {
+console.log("error in password hasing"); req.session.user_loginError = true; res.render("user/userRegister", { message:
+"please check password again" }); } } } } } catch (error) { next(error); } // res.render("user/userLogin"); };

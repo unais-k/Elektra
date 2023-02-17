@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Mirrored from smartshop.websitelayout.net/login-register by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:00:34 GMT -->
+    <head>
+        <!-- metas -->
+        <meta charset="utf-8" />
+        <meta name="author" content="Chitrakoot Web" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="keywords" content="Multipurpose eCommerce Template + Admin" />
+        <meta name="description" content="Smartshop - Multipurpose eCommerce Template + Admin" />
+
+        <!-- title  -->
+        <title>Gigant Elektra - Elegant smart world</title>
+
+        <!-- google icons -->
+        <script src="https://kit.fontawesome.com/624938e563.js" crossorigin="anonymous"></script>
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+            integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+            crossorigin="anonymous"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+            integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <script src="https://unpkg.com/themify@1.0.0/_themify.scss"></script>
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="/images/user/logos/favicon-32x32.png" />
+        <link rel="apple-touch-icon" href="/images/user/logos/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/user/logos/android-chrome-192x192.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/user/logos/android-chrome-512x512.png" />
+
+        <!-- plugins -->
+        <link rel="stylesheet" href="/stylesheet/user/plugins.css" />
+
+        <!-- theme core css -->
+        <link href="/stylesheet/user/styles.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <!-- PAGE LOADING
+    ================================================== -->
+        <div id="preloader"></div>
+
+        <!-- MAIN WRAPPER
+    ================================================== -->
+        <div class="main-wrapper mp-pusher" id="mp-pusher">
+            <!-- HEADER
+        ================================================== -->
+            <%- include("../includes/userHeader.ejs") %>
+            <!-- CATEGORY MP-MENU
+        ================================================== -->
+
+            <!-- PAGE TITLE
+        ================================================== -->
+            <section class="page-title-section bg-img cover-background" data-background="/images/user/bg/page-title.jpg">
+                <div class="container">
+                    <div class="title-info">
+                        <h1>Login</h1>
+                    </div>
+                    <div class="breadcrumbs-info">
+                        <ul class="ps-0">
+                            <li><a href="home-shop-1">Home</a></li>
+                            >
+                            <li><a href="#">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LOGIN REGISTER
+        ================================================== -->
+            <section class="md">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8 mb-1-9 mb-lg-0 col-md-12">
+                            <div class="common-block">
+                                <div class="inner-title">
+                                    <h4 class="mb-0">Login</h4>
+                                    <p class="mb-0">Everything is simple with Login.</p>
+                                </div>
+
+                                <form id="form">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Username</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="username"
+                                                    id="username"
+                                                    placeholder="Type Username"
+                                                    required
+                                                    onkeyup="emailkey()"
+                                                />
+                                                <p
+                                                    class="float-start text-danger mb-1 fw-light opacity-75"
+                                                    id="emailidwarning"
+                                                ></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input
+                                                    type="password"
+                                                    class="form-control"
+                                                    id="password"
+                                                    name="password"
+                                                    placeholder="Your password "
+                                                    required
+                                                    onkeyup="passwordkey()"
+                                                />
+                                                <p
+                                                    class="float-start text-danger mb-1 fw-light opacity-75"
+                                                    id="passwordidwarning"
+                                                ></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="text-start">
+                                                <a href="/userRegister" class="m-link-muted">Create new account?</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 text-start text-md-end">
+                                            <a href="/forgot_password" class="m-link-muted">Forgot password?</a>
+                                        </div>
+                                    </div>
+                                    <button type="submit" onclick="validate()" class="butn-style2 mt-4">Login</button>
+                                    <p class="text-danger" id="errmsg"></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER
+        ================================================== -->
+            <%- include("../includes/user-footer.ejs") %>
+        </div>
+
+        <!-- SCROLL TO TOP
+    ================================================== -->
+        <a href="#" class="scroll-to-top"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+
+        <!-- all js include start -->
+
+        <!-- axios cdn -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.3/axios.min.js"></script>
+
+        <!-- sweet alert cdn -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            let username = document.getElementById("username");
+            let password = document.getElementById("password");
+            let usernamewarning = document.getElementById("emailidwarning");
+            let passwordwarning = document.getElementById("passwordidwarning");
+            function validate() {
+                event.preventDefault();
+                let form = event.target.form;
+                let validation = true;
+                document.getElementById("errmsg").innerHTML = "";
+                usernamewarning.innerHTML = "";
+                passwordwarning.innerHTML = "";
+                if (username.value == "") {
+                    usernamewarning.innerHTML = "Please enter your email id";
+                    validation = false;
+                }
+                if (password.value == "") {
+                    passwordwarning.innerHTML = "Please enter your password";
+                    validation = false;
+                }
+                if (validation) {
+                    try {
+                        axios.post("/userLogin", { username: username.value, password: password.value }).then((e) => {
+                            if (!e.data.response) {
+                                form.submit();
+                                location.href = "/";
+                            } else {
+                                document.getElementById("errmsg").innerHTML = e.data.response;
+                                document.getElementById("form").reset();
+                            }
+                        });
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }
+            }
+            function emailkey() {
+                usernamewarning.innerHTML = "";
+            }
+
+            function passwordkey() {
+                passwordwarning.innerHTML = "";
+            }
+        </script>
+
+        <!-- jQuery -->
+        <script src="/js/user/jquery.min.js"></script>
+
+        <!-- popper js -->
+        <script src="/js/user/popper.min.js"></script>
+
+        <!-- bootstrap -->
+        <script src="/js/user/bootstrap.min.js"></script>
+
+        <!-- core.min.js -->
+        <script src="/js/user/core.min.js"></script>
+
+        <!-- custom scripts -->
+        <script src="/js/user/main.js"></script>
+
+        <!-- all js include end -->
+    </body>
+
+    <!-- Mirrored from smartshop.websitelayout.net/login-register by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:00:34 GMT -->
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Mirrored from smartshop.websitelayout.net/shop-cart by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:00:39 GMT -->
+    <head>
+        <!-- metas -->
+        <meta charset="utf-8" />
+        <meta name="author" content="Chitrakoot Web" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="keywords" content="Multipurpose eCommerce Template + Admin" />
+        <meta name="description" content="Smartshop - Multipurpose eCommerce Template + Admin" />
+
+        <!-- title  -->
+        <title>Gigant Elektra - Elegant smart world</title>
+
+        <!-- google icons -->
+        <script src="https://kit.fontawesome.com/138cb064b7.js" crossorigin="anonymous"></script>
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+            integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+            crossorigin="anonymous"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+            integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <script src="https://unpkg.com/themify@1.0.0/_themify.scss"></script>
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="/images/user/logos/favicon-32x32.png" />
+        <link rel="apple-touch-icon" href="/images/user/logos/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/user/logos/android-chrome-192x192.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/user/logos/android-chrome-512x512.png" />
+
+        <!-- plugins -->
+        <link rel="stylesheet" href="/stylesheet/user/plugins.css" />
+
+        <!-- theme core css -->
+        <link href="/stylesheet/user/styles.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <!-- PAGE LOADING
+    ================================================== -->
+        <div id="preloader"></div>
+
+        <!-- MAIN WRAPPER
+    ================================================== -->
+        <div class="main-wrapper mp-pusher" id="mp-pusher">
+            <!-- HEADER
+        ================================================== -->
+
+            <%- include("../includes/userHeader.ejs") %>
+
+            <!-- PAGE TITLE
+        ================================================== -->
+            <section class="page-title-section bg-img cover-background" data-background="/images/user/bg/page-title.jpg">
+                <div class="container">
+                    <div class="title-info">
+                        <h1>My Cart</h1>
+                    </div>
+                    <div class="breadcrumbs-info">
+                        <ul class="ps-0">
+                            <li><a href="#">Home</a></li>
+                            >
+                            <li><a href="#">My Cart</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CART TABLE
+        ================================================== -->
+            <section class="md">
+                <div class="container">
+                    <% if (cartItems.items.length) { %>
+                    <div class="row">
+                        <div class="col-12 border-bottom py-1-9 py-lg-2-3 mb-md-4 mb-lg-0">
+                            <a href="/userProduct">
+                                <button class="butn-style2 small bg-color float-end ms-2 mb-2 mb-md-0">
+                                    <span><i class="fa-solid fa-shop me-2"></i>Continue Shopping</span>
+                                </button></a
+                            >
+                        </div>
+
+                        <div class="col-12 shop-cart-table">
+                            <table class="table shop-cart text-center">
+                                <colgroup>
+                                    <col width="100" />
+                                    <col />
+                                    <col width="1" />
+                                    <col />
+                                    <col width="100" />
+                                    <col width="1" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th class="first"></th>
+                                        <th class="text-start text-uppercase font-weight-500">Product</th>
+                                        <th class="text-start text-uppercase font-weight-500">Price</th>
+                                        <th class="text-center text-uppercase font-weight-500">Qty</th>
+                                        <th class="text-start text-uppercase font-weight-500">Sub Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for( let i = 0; i < cartItems.items.length; i++ ) { %>
+                                    <tr>
+                                        <td class="product-thumbnail text-start">
+                                            <a href="#"
+                                                ><img src="<%=cartItems.items[i].productId.productImages[0]%>" alt="..."
+                                            /></a>
+                                        </td>
+                                        <td class="text-start">
+                                            <a href="#"><%=cartItems.items[i].productId.productName%></a>
+                                            <!-- <span class="text-uppercase d-block">SKU: 290397</span>
+                                                <a href="#" class="display-31"><i class="fas fa-edit"></i> Edit</a> -->
+                                        </td>
+                                        <td class="text-start"><span>$</span> <%=cartItems.items[i].productId.price%></td>
+                                        <td class="product-quantity">
+                                            <button
+                                                onclick="changeQuantity('<%=cartItems.items[i].productId._id%>','<%=cartItems._id%>',-1)"
+                                                class="btn btn-primary minusBtn"
+                                                id="minusBtn<%=cartItems.items[i].productId._id%>"
+                                                <%
+                                                if
+                                                (cartItems.items[i].quantity
+                                            >
+                                                1) { %> style="visibility: visible" <% } else { %> disabled <% } %> > -
+                                            </button>
+
+                                            <input
+                                                type="text"
+                                                class="text-center"
+                                                id="<%=cartItems.items[i].productId._id%>"
+                                                name=""
+                                                value="<%=cartItems.items[i].quantity%>"
+                                            />
+                                            <button
+                                                onclick="changeQuantity('<%=cartItems.items[i].productId._id%>','<%=cartItems._id%>', 1)"
+                                                class="btn btn-primary plusBtn"
+                                            >
+                                                +
+                                            </button>
+                                        </td>
+                                        <td
+                                            id="totalPrice<%=cartItems.items[i].productId._id%>"
+                                            class="product-subtotal text-start"
+                                        >
+                                            <span>$</span>
+                                            <%=cartItems.items[i].totalPrice%>
+                                        </td>
+                                        <td class="product-remove text-center">
+                                            <a onclick="deleteCart('<%=cartItems.items[i].productId._id%>')"
+                                                ><i class="fas fa-times"></i
+                                            ></a>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12 cart-total pt-1-9 pt-lg-2-3">
+                            <div class="row">
+                                <div class="col-md-6"></div>
+                                <div class="col-lg-6 border-1">
+                                    <table class="table cart-sub-total">
+                                        <tbody>
+                                            <tr>
+                                                <th class="text-end pe-0 text-uppercase">Cart Subtotal</th>
+                                                <td id="SubcartPrice" class="text-uppercase text-end pe-0">
+                                                    <span>$</span>
+                                                    <%=cartItems.cartPrice%>.00
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-end pe-0 text-uppercase">Shipping and Handling</th>
+                                                <td class="text-uppercase text-end pe-0">$0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-0 p-0" colspan="2">
+                                                    <hr />
+                                                </td>
+                                            </tr>
+                                            <tr class="total">
+                                                <th class="text-uppercase text-end pe-0 p-0">Order Total</th>
+                                                <td id="cartPrice" class="text-uppercase text-end pe-0 p-0">
+                                                    <span>$</span>
+                                                    <%=cartItems.cartPrice%>.00
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-0 p-0" colspan="2">
+                                                    <hr class="mb-0" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <a class="butn-style2 float-end" href="/checkout/?id=<%=cartItems._id%>"
+                                        ><span>Proceed to Checkout</span></a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } else { %>
+                    <div class="row">
+                        <div>
+                            <h1>Your cart is Empty</h1>
+                            <br /><br />
+                            <a class="butn-style2 p-2 m-3" href="/userProduct">Go to shop</a>
+                            <a class="butn-style2 p-2 m-3" href="/">Go to Home</a>
+                        </div>
+                    </div>
+
+                    <% } %>
+                </div>
+            </section>
+
+            <%- include("../includes/user-footer.ejs") %>
+        </div>
+
+        <!-- SCROLL TO TOP
+    ================================================== -->
+        <a href="#" class="scroll-to-top"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+
+        <!-- all js include start -->
+
+        <!-- axios cdn -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.3/axios.min.js"></script>
+
+        <!-- sweet alert cdn -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            async function changeQuantity(prodctId, cartid, cnt) {
+                let quant = document.getElementById(prodctId).value;
+                let count = parseInt(cnt);
+                let qty = await document.getElementById(prodctId).value;
+                qty = parseInt(qty);
+
+                let result = axios({
+                    url: "/quantity_change",
+                    method: "POST",
+                    data: {
+                        productId: prodctId,
+                        count: count,
+                        cartId: cartid,
+                    },
+                }).then((response) => {
+                    if (response.data.stock) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "product stock unavailable",
+                            text: "Sorry , Product unavailable",
+                            showConfirmButton: false,
+                        });
+                        location.reload();
+                    }
+                    document.getElementById(prodctId).value = response.data.qty;
+                    document.getElementById("cartPrice").innerHTML = `$ ${response.data.cartPrice}.00`;
+                    document.getElementById("SubcartPrice").innerHTML = `$ ${response.data.cartPrice}.00`;
+                    document.getElementById("totalPrice" + prodctId).innerHTML = ` $ ${response.data.totalPrice}.00 `;
+                    if (response.data.qty == 1) {
+                        document.getElementById("minusBtn" + prodctId).disabled = true;
+                    } else {
+                        document.getElementById("minusBtn" + prodctId).style.visibility = "visible";
+                    }
+                });
+            }
+
+            function deleteCart(productId) {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Are you sure?",
+                    text: "Product remove form cart!",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "remove",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        axios.delete(`/delete_cart?productId=${productId}`).then((result) => {
+                            Swal.fire("removed!", "item has been deleted.", "success").then((response) => {
+                                location.reload();
+                            });
+                        });
+                    }
+                });
+            }
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "center-end",
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+            });
+        </script>
+
+        <!-- jQuery -->
+        <script src="/js/user/jquery.min.js"></script>
+
+        <!-- popper js -->
+        <script src="/js/user/popper.min.js"></script>
+
+        <!-- bootstrap -->
+        <script src="/js/user/bootstrap.min.js"></script>
+
+        <!-- core.min.js -->
+        <script src="/js/user/core.min.js"></script>
+
+        <!-- custom scripts -->
+        <script src="/js/user/main.js"></script>
+
+        <!-- all js include end -->
+    </body>
+
+    <!-- Mirrored from smartshop.websitelayout.net/shop-cart by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:00:39 GMT -->
+</html>

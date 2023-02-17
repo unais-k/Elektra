@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Mirrored from smartshop.websitelayout.net/admin/add-categories.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:00:54 GMT -->
+    <head>
+        <!-- metas -->
+        <meta charset="utf-8" />
+        <meta name="author" content="Chitrakoot Web" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="description" content="Smartshop - Responsive eCommerce Admin Dashboard" />
+
+        <!-- title  -->
+        <title>Smartshop - Responsive eCommerce Admin Dashboard</title>
+
+        <script src="https://kit.fontawesome.com/624938e563.js" crossorigin="anonymous"></script>
+        <!-- favicon -->
+        <link rel="shortcut icon" href="/images/admin/logos/favicon.png" />
+        <link rel="apple-touch-icon" href="/images/admin/logos/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/admin/logos/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/admin/logos/apple-touch-icon-114x114.png" />
+
+        <!-- common plugins -->
+        <link rel="stylesheet" href="/plugins/admin/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/plugins/admin/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/plugins/admin/icomoon/style.css" />
+        <link rel="stylesheet" href="/plugins/admin/uniform/css/default.css" />
+        <link rel="stylesheet" href="/plugins/admin/switchery/switchery.min.css" />
+
+        <!-- theme core css -->
+        <link rel="stylesheet" href="/stylesheet/admin/style.css" />
+    </head>
+
+    <body>
+        <!-- PAGE LOADING
+    ================================================== -->
+        <div id="preloader"></div>
+
+        <!-- PAGE CONTAINER
+    ================================================== -->
+        <div class="page-container">
+            <%- include("../includes/admin-sidebar.ejs") %>
+            <!-- PAGE CONTENT
+        ================================================== -->
+            <div class="page-content">
+                <!-- PAGE HEADER
+            ================================================== -->
+                <%- include("../includes/admin_header.ejs") %>
+
+                <!-- PAGE INNER
+            ================================================== -->
+                <div class="page-inner">
+                    <!-- PAGE MAIN WRAPPER
+                ================================================== -->
+                    <div id="main-wrapper">
+                        <!-- row -->
+                        <div class="row"></div>
+                        <!-- end row -->
+
+                        <!-- row -->
+                        <div class="row">
+                            <div class="col-md-12 grid-margin">
+                                <div class="card card-white">
+                                    <div class="card-heading clearfix">
+                                        <h4 class="card-title">Add your category</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <form method="post" action="/admin/addCategoryPost">
+                                            <div class="form-group">
+                                                <label for="exampleInput1">Category Name</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="category"
+                                                    id="exampleInput1"
+                                                    required
+                                                    aria-describedby="exampleInput1"
+                                                />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Category details </label>
+                                                <textarea
+                                                    class="form-control"
+                                                    id="exampleFormControlTextarea1"
+                                                    rows="3"
+                                                    required
+                                                    name="description"
+                                                ></textarea>
+                                                <% if (message) { %>
+                                                <h5 style="color: red"><%= message %></h5>
+                                                <% } else { %> <% } %>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInput1">Brand Name</label>
+                                                <div>
+                                                    <input type="checkbox" id="scales" value="SAMSUNG" name="checkbox" />
+                                                    <label for="scales">SAMSUNG</label>
+                                                    <input type="checkbox" id="horns" value="APPLE" name="checkbox" />
+                                                    <label for="horns">APPLE</label>
+                                                    <input type="checkbox" id="horns" value="IQOO" name="checkbox" />
+                                                    <label for="horns">IQOO</label>
+                                                    <input type="checkbox" id="horns" value="BOAT" name="checkbox" />
+                                                    <label for="horns">BOAT</label>
+                                                    <input type="checkbox" id="horns" value="REALME" name="checkbox" />
+                                                    <label for="horns">REALME</label>
+                                                    <input type="checkbox" id="horns" value="ONE PLUS" name="checkbox" />
+                                                    <label for="horns">ONE PLUS</label>
+                                                </div>
+
+                                                <div>
+                                                    <input type="checkbox" id="horns" value="HP" name="checkbox" />
+                                                    <label for="horns">HP</label>
+                                                    <input type="checkbox" id="horns" value="DELL" name="checkbox" />
+                                                    <label for="horns">DELL</label>
+                                                    <input type="checkbox" id="horns" value="ACER" name="checkbox" />
+                                                    <label for="horns">ACER</label>
+                                                    <input type="checkbox" id="horns" value="SONY" name="checkbox" />
+                                                    <label for="horns">SONY</label>
+                                                    <input type="checkbox" id="horns" value="ASUS" name="checkbox" />
+                                                    <label for="horns">ASUS</label>
+                                                    <input type="checkbox" id="horns" value="LG" name="checkbox" />
+                                                    <label for="horns">LG</label>
+                                                    <input type="checkbox" id="horns" value="LENOVO" name="checkbox" />
+                                                    <label for="horns">LENOVO</label>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <button type="submit" class="btn btn-primary">Create Category</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <div class="page-footer">
+                        <p>Copyright &copy; <span class="current-year"></span> Gigant Elektra All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCROLL TO TOP
+    ================================================== -->
+        <a href="#" class="scroll-to-top"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+
+        <!-- ALL JS INCLUDE
+    ================================================== -->
+
+        <!-- jQuery -->
+        <script src="/plugins/admin/jquery/jquery.min.js"></script>
+
+        <!-- popper -->
+        <script src="/plugins/admin/popper/js/popper.min.js"></script>
+
+        <!-- bootstrap -->
+        <script src="/plugins/admin/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- slimscroll -->
+        <script src="/plugins/admin/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+        <!-- uniform -->
+        <script src="/plugins/admin/uniform/js/jquery.uniform.standalone.js"></script>
+
+        <!-- switchery -->
+        <script src="/plugins/admin/switchery/switchery.min.js"></script>
+
+        <!-- theme core scripts -->
+        <script src="/js/admin/main.js"></script>
+
+        <!-- all js include end -->
+    </body>
+
+    <!-- Mirrored from smartshop.websitelayout.net/admin/add-categories.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:00:54 GMT -->
+</html>

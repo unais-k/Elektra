@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Mirrored from smartshop.websitelayout.net/admin/category.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Jan 2023 16:00:51 GMT -->
+    <head>
+        <!-- metas -->
+        <meta charset="utf-8" />
+        <meta name="author" content="Chitrakoot Web" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="description" content="Smartshop - Responsive eCommerce Admin Dashboard" />
+
+        <!-- title  -->
+        <title>Smartshop - Responsive eCommerce Admin Dashboard</title>
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="/images/admin/logos/favicon-16x16.png" />
+        <link rel="apple-touch-icon" href="/images/admin/logos/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/admin/logos/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/admin/logos/apple-touch-icon-114x114.png" />
+        <script src="https://kit.fontawesome.com/624938e563.js" crossorigin="anonymous"></script>
+        <!-- common plugins -->
+        <link rel="stylesheet" href="/plugins/admin/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/plugins/admin/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/plugins/admin/icomoon/style.css" />
+        <link rel="stylesheet" href="/plugins/admin/uniform/css/default.css" />
+        <link rel="stylesheet" href="/plugins/admin/switchery/switchery.min.css" />
+
+        <!-- theme core css -->
+        <link rel="stylesheet" href="/stylesheet/admin/style.css" />
+    </head>
+
+    <body>
+        <!-- PAGE LOADING
+    ================================================== -->
+        <div id="preloader"></div>
+
+        <!-- PAGE CONTAINER
+    ================================================== -->
+        <div class="page-container">
+            <!-- PAGE SIDEBAR
+        ================================================== -->
+            <%- include("../includes/admin-sidebar.ejs") %>
+            <!-- PAGE CONTENT
+        ================================================== -->
+            <div class="page-content">
+                <!-- PAGE HEADER
+            ================================================== -->
+                <%- include("../includes/admin_header.ejs") %>
+
+                <!-- PAGE INNER
+            ================================================== -->
+                <div class="page-inner">
+                    <!-- PAGE MAIN WRAPPER
+                ================================================== -->
+                    <div id="main-wrapper">
+                        <!-- row -->
+                        <div class="row align-items-center grid-margin">
+                            <div class="col-12">
+                                <div class="card card-white">
+                                    <div class="card-body row align-items-center">
+                                        <div class="col-12 col-sm">
+                                            <h4 class="mb-4 mb-sm-0 text-center text-sm-start">Category</h4>
+                                        </div>
+
+                                        <div class="col-12 col-sm-auto">
+                                            <div class="row justify-content-center">
+                                                <div class="col-auto my-1 my-md-0">
+                                                    <label class="m-0">Show:</label>
+                                                    <select class="w-auto d-inline-block form-select">
+                                                        <option value="#?limit=24" selected="selected">24</option>
+                                                        <option value="#?limit=25">25</option>
+                                                        <option value="#?limit=50">50</option>
+                                                        <option value="#?limit=75">75</option>
+                                                        <option value="#?limit=100">100</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-auto my-1 my-md-0">
+                                                    <label class="m-0">Sort By:</label>
+                                                    <select class="w-auto d-inline-block form-select">
+                                                        <option value="#?sort=p.sort_order&amp;order=ASC">Default</option>
+                                                        <option value="#?sort=pd.name&amp;order=ASC">Name (A - Z)</option>
+                                                        <option value="#?sort=pd.name&amp;order=DESC">Name (Z - A)</option>
+                                                        <option value="#?sort=p.price&amp;order=ASC" selected="">
+                                                            Price (Low &gt; High)
+                                                        </option>
+                                                        <option value="#?sort=p.price&amp;order=DESC">
+                                                            Price (High &gt; Low)
+                                                        </option>
+                                                        <option value="#?sort=rating&amp;order=DESC">
+                                                            Rating (Highest)
+                                                        </option>
+                                                        <option value="#?sort=rating&amp;order=ASC">Rating (Lowest)</option>
+                                                        <option value="#?sort=p.model&amp;order=ASC">Model (A - Z)</option>
+                                                        <option value="#?sort=p.model&amp;order=DESC">Model (Z - A)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                        <!-- row -->
+                        <div class="row">
+                            <div class="col-12 grid-margin">
+                                <div class="card card-white">
+                                    <div class="card-body slimscroll">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Title</th>
+                                                        <th scope="col">price</th>
+                                                        <th scope="col">Description</th>
+                                                        <th scope="col">URL</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <%for (let i = 0; i < banner.length; i++) {%>
+
+                                                    <tr>
+                                                        <td><%=banner[i]._id.toString().substr(16)%></td>
+
+                                                        <td><%=banner[i].title%></td>
+                                                        <td>$<%=banner[i].price%>.00</td>
+                                                        <td><%=banner[i].description%></td>
+                                                        <td><%=banner[i].url%></td>
+                                                        <td>
+                                                            <!-- <div id="modalund">
+                                                                <a
+                                                                    onclick="findBan('%=banner[i]._id%>')"
+                                                                    class="btn btn-dark"
+                                                                >
+                                                                    EDIT
+                                                                </a>
+                                                            </div> -->
+                                                            <button
+                                                                type="button"
+                                                                class="btn btn-dark"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#staticBackdrop<%=i%>"
+                                                            >
+                                                                Edit
+                                                            </button>
+                                                            <div
+                                                                class="modal fade"
+                                                                id="staticBackdrop<%=i%>"
+                                                                data-bs-backdrop="static"
+                                                                data-bs-keyboard="false"
+                                                                tabindex="-1"
+                                                                aria-labelledby="staticBackdropLabel"
+                                                                aria-hidden="true"
+                                                            >
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h1
+                                                                                class="modal-title fs-5"
+                                                                                id="staticBackdropLabel"
+                                                                            >
+                                                                                Edit Banner
+                                                                            </h1>
+                                                                            <button
+                                                                                type="button"
+                                                                                class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"
+                                                                            ></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form
+                                                                                id="form"
+                                                                                action="/admin/edit_banner"
+                                                                                method="post"
+                                                                                enctype="multipart/form-data"
+                                                                            >
+                                                                                <div class="row">
+                                                                                    <input
+                                                                                        type="text"
+                                                                                        value="<%=banner[i]._id%>"
+                                                                                        name="id"
+                                                                                        hidden
+                                                                                    />
+                                                                                    <div class="col-md-12 mb-3">
+                                                                                        <label for="validationCustom01"
+                                                                                            >Title</label
+                                                                                        >
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            class="form-control"
+                                                                                            name="title"
+                                                                                            value="<%=banner[i].title%>"
+                                                                                            id="validationCustom01"
+                                                                                            required
+                                                                                        />
+                                                                                        <div class="valid-feedback">
+                                                                                            Looks good!
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-6 mb-3">
+                                                                                        <label for="validationCustom02"
+                                                                                            >URL</label
+                                                                                        >
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            class="form-control"
+                                                                                            name="url"
+                                                                                            value="<%=banner[i].url%>"
+                                                                                            id="validationCustom02"
+                                                                                            required
+                                                                                        />
+                                                                                        <div class="valid-feedback">
+                                                                                            Looks good!
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6 mb-3">
+                                                                                        <label for="validationCustom02"
+                                                                                            >Price</label
+                                                                                        >
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            class="form-control"
+                                                                                            name="price"
+                                                                                            value="<%=banner[i].price%>"
+                                                                                            id="validationCustom02"
+                                                                                            required
+                                                                                        />
+                                                                                        <div class="valid-feedback">
+                                                                                            Looks good!
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6 mb-3">
+                                                                                        <label for="validationCustom03"
+                                                                                            >Description</label
+                                                                                        >
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            name="description"
+                                                                                            class="form-control"
+                                                                                            value="<%=banner[i].description%>"
+                                                                                            id="validationCustom03"
+                                                                                            required
+                                                                                        />
+                                                                                        <div class="valid-feedback">
+                                                                                            Looks good!
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="card-heading clearfix">
+                                                                                        <h4 class="card-title">Photos</h4>
+                                                                                    </div>
+                                                                                    <div class="col-md-12">
+                                                                                        <div>
+                                                                                            <input
+                                                                                                class="form-control form-control-lg"
+                                                                                                id="formFileLg"
+                                                                                                type="file"
+                                                                                                accept="image/jpeg,image/gif,image/png,image/x-eps"
+                                                                                                name="bannerImages"
+                                                                                            />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="text-center m-3">
+                                                                                            <button
+                                                                                                type="submit"
+                                                                                                class="btn btn-primary"
+                                                                                            >
+                                                                                                SUBMIT
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <%}%>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <p>Copyright &copy; <span class="current-year"></span> Gigant Elektra All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCROLL TO TOP
+    ================================================== -->
+        <a href="#" class="scroll-to-top"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+
+        <!-- ALL JS INCLUDE
+    ================================================== -->
+
+        <!-- axios cdn -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.3/axios.min.js"></script>
+
+        <!-- sweet alert cdn -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            function findBan(id) {
+                axios({
+                    method: "post",
+                    url: "/admin/findBanner",
+                    data: {
+                        id: id,
+                    },
+                })
+                    .then((result) => {
+                        if (result.data.succ) {
+                            let html = ``;
+
+                            document.getElementById("modalund").innerHTML = html;
+                        } else {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: `Something went wrong + ${result.data.response}`,
+                            });
+                            console.log("error");
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
+        </script>
+
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+            });
+            // addBanner = async () => {
+            //     event.preventDefault();
+            //     const formData = new FormData(event.target);
+            //     const formProps = await Object.fromEntries(formData);
+            //     console.log(formProps);
+            //     axios.post("/admin/edit_banner", formProps).then(async (e) => {
+            //         if (e.data.succ) {
+            //             await Toast.fire({
+            //                 icon: "success",
+            //                 title: "Banner added successfully",
+            //             });
+            //             document.getElementById("form").reset();
+            //             // location.href = "/admin/addCoupon";
+            //         } else {
+            //             Swal.fire({
+            //                 icon: "error",
+            //                 title: "Oops...",
+            //                 text: "Something went wrong",
+            //             });
+            //         }
+            //     });
+            // };
+        </script>
+
+        <!-- jQuery -->
+        <script src="/plugins/admin/jquery/jquery.min.js"></script>
+
+        <!-- popper -->
+        <script src="/plugins/admin/popper/js/popper.min.js"></script>
+
+        <!-- bootstrap -->
+        <script src="/plugins/admin/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- slimscroll -->
+        <script src="/plugins/admin/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+        <!-- uniform -->
+        <script src="/plugins/admin/uniform/js/jquery.uniform.standalone.js"></script>
+
+        <!-- switchery -->
+        <script src="/plugins/admin/switchery/switchery.min.js"></script>
+
+        <!-- theme core scripts -->
+        <script src="/js/admin/main.js"></script>
+
+        <!-- all js include end -->
+    </body>
+</html>
