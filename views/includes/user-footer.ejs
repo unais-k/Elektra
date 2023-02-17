@@ -146,12 +146,9 @@
             });
 
             if (result.data.response == "productExist") {
-                await Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Product already exist in cart",
-                    showConfirmButton: false,
-                    timer: 1000,
+                await Toast.fire({
+                    icon: "oops",
+                    title: "Product already exist",
                 });
             } else if (result.data.response == "outofstock") {
                 await Swal.fire({
@@ -172,13 +169,6 @@
                     });
                 } else {
                     if (result.data.status == true) {
-                        // await Swal.fire({
-                        //     icon: "success",
-                        //     title: "done",
-                        //     text: "New product added",
-                        //     showConfirmButton: false,
-                        //     timer: 1000,
-                        // });
                         await Toast.fire({
                             icon: "success",
                             title: "New product added successfully",
